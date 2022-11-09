@@ -27,7 +27,7 @@ int main()
         }
         
     }
-    
-    cin>>total_classes;
+    getchar;
+    // cin>>total_classes;
     return 0;
 }
