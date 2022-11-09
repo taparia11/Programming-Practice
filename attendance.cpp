@@ -3,7 +3,10 @@ using namespace std;
 int main()
 {
     float total_classes,attended_classes,required_classes,current_percent,final_percent,final_total_classes,final_attended_classes;
-    cin>>total_classes>>attended_classes;
+    cout<<"Enter Total Classes : ";
+    cin>>total_classes;
+    cout<<"Enter Attended Classes : ";
+    cin>>attended_classes;
         current_percent = attended_classes/total_classes*100;
     for (int i = 0;i<50 ; i++)
     {
@@ -25,6 +28,6 @@ int main()
         
     }
     
-    cout<<"Hello";
+    cin>>total_classes;
     return 0;
 }
