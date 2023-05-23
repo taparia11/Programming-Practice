@@ -1,13 +1,17 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>			
 using namespace std;
 
 int main(){
-    	int t;
-        cin>>t;
-	while(t--){
-	    int a,b;
-	    cin>>a>>b;
-	    cout<<((a+b)%2==0?"YES":"NO")<<endl;
+	vector<int> arr;
+	arr.push_back(4);
+	arr.push_back(4);
+	arr.push_back(3);
+	arr.push_back(4);
+	arr.pop_back();
+
+	for(auto it:arr){
+		cout<<it<<" ";
 	}
-    return 0;
+	return 0;
 }
