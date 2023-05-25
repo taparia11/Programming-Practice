@@ -7,7 +7,7 @@ public:
         int a=0;
         for(auto it:nums){
             arr.push_back(it+a);
-            a = it+a;
+            a = it+a; 
         }
         return arr;
     }
