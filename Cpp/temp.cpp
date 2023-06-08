@@ -1,30 +1,22 @@
-#include <iostream>
-#include <vector>
+#include<bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-	vector< string> arr;
-	int idx, mina = INT16_MAX, t, age;
-	string name;
-	cin >> t;
-	for (int i = 0; i < t; i++)
-	{
-		cin >> name >> age;
-		arr.push_back(name);
-		if (mina > age)
-		{
-			mina = age;
-			idx = i;
-		}
+int main() {
+	clock_t start_time = clock();
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,x;
+	    cin>>n>>x;
+			if(n==x || n-1==x+1 || n+3==x-1)
+				cout<<"YES"<<endl;
+			else
+	        	cout<<"NO"<<endl;
+
 	}
-	for (int i = idx; i < t; i++)
-	{
-		cout << arr[i]<<endl;
-	}
-	for (int i = 0; i < idx; i++)
-	{
-		cout << arr[i]<<endl;
-	}
+	clock_t end_time1 = clock();
+	clock_t result = end_time1 - start_time;
+	cout<<result<<" milliseconds"<<endl;
+	cout<<result/CLOCKS_PER_SEC<<" seconds"<<endl;
 	return 0;
 }
