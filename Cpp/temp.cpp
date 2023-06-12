@@ -1,22 +1,53 @@
-#include<bits/stdc++.h>
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <bits/stdc++.h>
+#include <algorithm>
 using namespace std;
 
+
 int main() {
-	clock_t start_time = clock();
-	int t;
+    int t;
 	cin>>t;
 	while(t--){
-	    int n,x;
-	    cin>>n>>x;
-			if(n==x || n-1==x+1 || n+3==x-1)
-				cout<<"YES"<<endl;
-			else
-	        	cout<<"NO"<<endl;
+		int n,temp=0;
+		cin>>n;
+		int arr[n]={0};
+		for (int i = 0; i < n; i++)
+		{
+			cin>>arr[i];
+		}
+		vector<int> ar;
+		for (int i = 0; i < n; i++)
+		{
+			if(arr[i]>=temp){
+				ar.emplace_back(arr[i]);
+				temp=arr[i];
 
+			}
+			else if(arr[i]<=arr[0] && arr[i]!=1){
+				ar.emplace_back(arr[i]);
+			}
+		}
+		int j=0;
+		for (int i = 0; i < n; i++)
+		{
+			if(arr[i] == ar[j]){
+				arr[i]=1;
+				j++;
+			}
+			else
+				arr[i] = 0;
+		}
+		
+		for (int i = 0; i < n; i++)
+		{
+			cout<<arr[i];
+		}
+		cout<<endl;
+		
 	}
-	clock_t end_time1 = clock();
-	clock_t result = end_time1 - start_time;
-	cout<<result<<" milliseconds"<<endl;
-	cout<<result/CLOCKS_PER_SEC<<" seconds"<<endl;
-	return 0;
+    return 0;
 }
+
+
