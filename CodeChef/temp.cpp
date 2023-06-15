@@ -1,29 +1,34 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <math.h>
+#include <string.h>
 using namespace std;
-
-int main()
-{
-	string subject
-		= "v=spf1 ip4:40.113.200.201 ip6:2001:db8:85a3:8d3:1319:8a2e:370:7348 include:thirdpartydomain.com ~all";
-
-	// Regex for IPV4
-	regex pattern(
-		"(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})");
-
-	for (regex_iterator<string::iterator> it(
-			subject.begin(), subject.end(), pattern);
-		it != regex_iterator<string::iterator>(); ++it) {
-		cout << it->str() << endl;
-	}
-
-	regex pattern1(
-		"((([0-9a-fA-F]){1,4})\\:){7}([0-9a-fA-F]){1,4}");
-
-	for (regex_iterator<string::iterator> it(
-			subject.begin(), subject.end(), pattern1);
-		it != regex_iterator<string::iterator>(); ++it) {
-		cout << it->str() << endl;
-	}
- 
-	return 0;
+#define MIN(x,y) ((x) < (y) ? (x) : (y)) 
+int main() {
+   int i,j,l1,l2,t,track;
+   int dist[50][50];
+   char s1[20];
+   scanf("%s",s1);
+   char s2[20];
+   scanf("%s",s2);
+   l1 = strlen(s1);
+   l2= strlen(s2);
+   for(i=0;i<=l1;i++) {
+      dist[0][i] = i;
+   }
+   for(j=0;j<=l2;j++) {
+      dist[j][0] = j;
+   }
+   for (j=1;j<=l1;j++) {
+      for(i=1;i<=l2;i++) {
+         if(s1[i-1] == s2[j-1]) {
+            track= 0;
+         } else {
+            track = 1;
+         }
+         t = MIN((dist[i-1][j]+1),(dist[i][j-1]+1));
+         dist[i][j] = MIN(t,(dist[i-1][j-1]+track));
+      }
+   }
+   cout<<dist[l2][l1];
+   return 0;
 }
