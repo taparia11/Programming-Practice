@@ -24,6 +24,6 @@ int main()
 		it != regex_iterator<string::iterator>(); ++it) {
 		cout << it->str() << endl;
 	}
-
+ 
 	return 0;
 }
