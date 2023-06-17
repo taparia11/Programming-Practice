@@ -17,7 +17,7 @@ int main() {
    }
    for(j=0;j<=l2;j++) {
       dist[j][0] = j;
-   }
+   } 
    for (j=1;j<=l1;j++) {
       for(i=1;i<=l2;i++) {
          if(s1[i-1] == s2[j-1]) {
