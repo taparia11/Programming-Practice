@@ -1,4 +1,4 @@
-// Problem Link => https://leetcode.com/problems/fizz-buzz/description/
+// Problem Link => https://leetcode.com/problems/fizz-buzz/description
 
 class Solution {
 public:
