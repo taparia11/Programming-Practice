@@ -45,7 +45,7 @@ public:
                     fast = fast->next->next;
                 }
                 else{
-                    fast=NULL;
+                    fast=NULL; 
                     even->next=NULL;
                 }
             }
