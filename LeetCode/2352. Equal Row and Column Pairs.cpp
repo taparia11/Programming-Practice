@@ -21,7 +21,7 @@ public:
                 }
                 if (count == n)
                 {
-                    ans++;
+                    ans++; 
                 }
             }
         }
