@@ -18,7 +18,7 @@ int main()
         {
             s.push(i++);
         }
-        else{
+        else{ 
             int h=a[s.top()];
             s.pop();
             int a=h*(s.empty()?i:i-s.top()-1);
