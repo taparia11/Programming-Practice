@@ -9,7 +9,7 @@ int main()  {
     // YOUR CODE GOES HERE
     // Please take input and print output to standard input/output (stdin/stdout)
     // E.g. 'cin' for input & 'cout' for output
-    int a,n,i;
+    int a,n,i; 
     vector<int> arr;
     cin>>n;
     for (int i = 0; i < n; i++)
