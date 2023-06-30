@@ -17,7 +17,7 @@ public:
                     if (grid[k][i] == grid[i][j])
                     {
                         count++;
-                    }
+                    } 
                 }
                 if (count == n)
                 {
