@@ -4,7 +4,6 @@ class MyHashMap {
 public:
     map<int,int> hmap;
     MyHashMap() {
-        // hmap.resize(10000001);
     }
     
     void put(int key, int value) {
