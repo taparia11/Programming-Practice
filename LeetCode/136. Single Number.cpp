@@ -5,7 +5,7 @@ class Solution
 public:
     int singleNumber(vector<int> &nums)
     {
-        
+
 // Using map STL
 
 
@@ -19,7 +19,10 @@ public:
         //     }
         // return 0;
 
+
+
 // Using set STL
+
         set<int> hashset;
         for(auto it:nums)
             if(hashset.count(it)>0)
