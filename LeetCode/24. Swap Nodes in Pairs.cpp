@@ -13,27 +13,38 @@
 class Solution {
 public:
 
+// Using Recursion Solution
 
-    ListNode* swap(ListNode* list){
-        ListNode* sp = list->next;
-        list->next = list->next->next;
-        sp->next = list;
-        return sp;
-
-    }
-    ListNode* swapPairs(ListNode* head) {
-        ListNode *ptr = new ListNode();
-        ListNode* ans = ptr;
-
-        while(head && head->next){
-            ListNode* temp = swap(head);
-            ptr->next = temp;
-            ptr = ptr->next->next;
-            head = head->next;
+        ListNode* swapPairs(ListNode* head) {
+            if(!head || !head->next)
+                return head;
+            ListNode* sp = head->next;
+            head->next = swapPairs(sp->next);
+            sp->next = head;
+            return sp;
         }
-        if(head){
-            ptr->next = head;
-        }
-        return ans->next;
-    }
+
+//Basic Solution
+        // ListNode* swap(ListNode* list){
+        //     ListNode* sp = list->next;
+        //     list->next = list->next->next;
+        //     sp->next = list;
+        //     return sp;
+
+        // }
+        // ListNode* swapPairs(ListNode* head) {
+        //     ListNode *ptr = new ListNode();
+        //     ListNode* ans = ptr;
+
+        //     while(head && head->next){
+        //         ListNode* temp = swap(head);
+        //         ptr->next = temp;
+        //         ptr = ptr->next->next;
+        //         head = head->next;
+        //     }
+        //     if(head){
+        //         ptr->next = head;
+        //     }
+        //     return ans->next;
+        // }
 };
