@@ -40,11 +40,6 @@ public:
              list1=list1->next;
             }
         }
-        // ListNode *temp=list3;
-        // while(temp){
-        //     cout<<temp->val<<"->";
-        //     temp = temp->next;
-        // }
         if(list1==NULL){
             list3->next=list2;
         }
