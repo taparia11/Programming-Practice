@@ -8,9 +8,7 @@ public:
             mp[it]++;
         int max = INT_MIN, val=0;
         for(auto it:nums){
-
             if(max<mp[it]){
-
                 val = it;
                 max = mp[it];
             }
