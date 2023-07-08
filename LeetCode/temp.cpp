@@ -1,22 +1,26 @@
-#include<iostream>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-int main(){
-    int t;
-    cin>>t;
-    while (t--)
-    {
-        int nails;
-        cin>>nails;
-        int count=0;
-        int arr[nails][2];
-        for(int i=0;i<nails;i++){
-            cin>>arr[i][0]>>arr[i][1];
-            if(arr[i][0]>arr[i][1])
-                count++;
-        }
-        cout<<count<<endl;
+int max_alternating_subarray_length(vector<int> nums) {
+  int max_length = 1;
+  int current_length = 1;
+  int prev_num = nums[0];
+  for (int i = 1; i < nums.size(); i++) {
+    if ((nums[i - 1] ^ nums[i]) == 1) {
+      current_length++;
+    } else {
+      current_length = 1;
     }
-    
-    return 0;
+    max_length = max(max_length, current_length);
+  }
+  return max_length == 1 ? -1 : max_length;
+}
+
+int main() {
+  vector<int> nums = {2, 3, 4, 3, 4};
+  int max_length = max_alternating_subarray_length(nums);
+  cout << max_length << endl;
+  return 0;
 }
