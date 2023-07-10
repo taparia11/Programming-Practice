@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Funtion for mex alternating subarray legth
 int max_alternating_subarray_length(vector<int> nums) {
   int max_length = 1;
   int current_length = 1;
@@ -18,6 +19,7 @@ int max_alternating_subarray_length(vector<int> nums) {
   return max_length == 1 ? -1 : max_length;
 }
 
+//Driver code
 int main() {
   vector<int> nums;
   int a,n;
