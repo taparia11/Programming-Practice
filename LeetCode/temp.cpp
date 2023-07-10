@@ -19,7 +19,15 @@ int max_alternating_subarray_length(vector<int> nums) {
 }
 
 int main() {
-  vector<int> nums = {2, 3, 4, 3, 4};
+  vector<int> nums;
+  int a,n;
+  cin>>n;
+  for (int i = 0; i < n; i++)
+  {
+    cin>>a;
+    nums.push_back(a);
+  }
+  
   int max_length = max_alternating_subarray_length(nums);
   cout << max_length << endl;
   return 0;
