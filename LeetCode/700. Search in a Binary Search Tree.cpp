@@ -16,14 +16,12 @@ public:
     TreeNode* searchBST(TreeNode* root, int val) {
         // Solving Iteratively 
         TreeNode *temp = root ; 
-
         while(temp != NULL)
         {
             if (temp -> val == val)
             {
                 return temp ; 
             }
-
             if (temp -> val > val)
             {
                 temp = temp -> left; 
