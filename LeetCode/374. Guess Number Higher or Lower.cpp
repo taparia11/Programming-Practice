@@ -15,7 +15,6 @@ public:
         long long int start=0,end=n,mid;
         while(start<=end){
             mid = (start+end)/2;
-
             switch(guess(mid)){
                 case 1: start=++mid;
                         break;
