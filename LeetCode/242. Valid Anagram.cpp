@@ -9,7 +9,6 @@ public:
         for(int i=0;i<s.length();i++){
             arr[s.at(i)-'a']++;
             arr[t.at(i)-'a']--;
-
         }
         for(int i=0;i<26;i++)
             if(arr[i]!=0)
