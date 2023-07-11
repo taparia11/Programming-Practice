@@ -28,7 +28,6 @@ public:
             {
                 temp = temp -> left; 
             }
-
             else
             {
                 temp = temp -> right ; 
