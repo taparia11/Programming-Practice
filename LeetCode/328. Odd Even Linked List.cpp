@@ -10,43 +10,51 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    ListNode* oddEvenList(ListNode* head) {
-        ListNode* fast=head;
-        
-        int count =0 ;
-        while(fast){
-            fast= fast->next;
+    ListNode *oddEvenList(ListNode *head)
+    {
+        ListNode *fast = head;
+
+        int count = 0;
+        while (fast)
+        {
+            fast = fast->next;
             count++;
         }
 
-        if(count<2)
+        if (count < 2)
             return head;
-        ListNode* odd=head;
-        ListNode* ret=odd;
-        ListNode* even=head->next;
-        fast=even->next;
+        ListNode *odd = head;
+        ListNode *ret = odd;
+        ListNode *even = head->next;
+        fast = even->next;
         head = even;
-        while(fast){
-            if(count%2==0){
+        while (fast)
+        {
+            if (count % 2 == 0)
+            {
                 even->next = fast->next;
                 even = even->next;
                 odd->next = fast;
                 odd = odd->next;
                 fast = fast->next->next;
             }
-            else{
+            else
+            {
                 odd->next = fast;
                 odd = odd->next;
-                if(fast->next){
+                if (fast->next)
+                {
                     even->next = fast->next;
                     even = even->next;
                     fast = fast->next->next;
                 }
-                else{
-                    fast=NULL; 
-                    even->next=NULL;
+                else
+                {
+                    fast = NULL;
+                    even->next = NULL;
                 }
             }
         }
