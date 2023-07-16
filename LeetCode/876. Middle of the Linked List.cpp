@@ -10,28 +10,34 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    ListNode* middleNode(ListNode* head) {
-        int i,count = 1;
-        ListNode *ptr=head; 
-        while(ptr->next!=NULL){
-            ptr=ptr->next;
+    ListNode *middleNode(ListNode *head)
+    {
+        int i, count = 1;
+        ListNode *ptr = head;
+        while (ptr->next != NULL)
+        {
+            ptr = ptr->next;
             count++;
         }
-    //    cout<<count;
-        if(count%2==0){
-            for(i=1;i<=count/2;i++){
+        //    cout<<count;
+        if (count % 2 == 0)
+        {
+            for (i = 1; i <= count / 2; i++)
+            {
                 head = head->next;
             }
             return head;
         }
-        else{
-            for(i=1;i<=(count)/2;i++){
+        else
+        {
+            for (i = 1; i <= (count) / 2; i++)
+            {
                 head = head->next;
             }
             return head;
         }
-        
     }
 };
