@@ -1,15 +1,21 @@
 // Problem Link => https://leetcode.com/problems/contains-duplicate-ii/description/
 
-class Solution {
+class Solution
+{
 public:
-    bool containsNearbyDuplicate(vector<int>& nums, int k) {
-        
+    bool containsNearbyDuplicate(vector<int> &nums, int k)
+    {
+
         unordered_map<int, int> mp;
 
-        for(int i=0;i<nums.size();i++){
-            if(mp.count(nums[i])>0){
-                if(abs(mp[nums[i]]-i)<=k)   return true;
-                else mp[nums[i]] = i;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (mp.count(nums[i]) > 0)
+            {
+                if (abs(mp[nums[i]] - i) <= k)
+                    return true;
+                else
+                    mp[nums[i]] = i;
             }
             else
                 mp[nums[i]] = i;
