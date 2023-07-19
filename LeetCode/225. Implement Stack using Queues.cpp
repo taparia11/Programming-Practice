@@ -1,19 +1,23 @@
 // Problem Link => https://leetcode.com/problems/implement-stack-using-queues/description/
 
-class MyStack {
+class MyStack
+{
 public:
     queue<int> mque;
-    MyStack() {
-        
+    MyStack()
+    {
     }
-    
-    void push(int x) {
+
+    void push(int x)
+    {
         mque.push(x);
     }
-    
-    int pop() {
+
+    int pop()
+    {
         int s = mque.size();
-        while(s>1){
+        while (s > 1)
+        {
             int temp = mque.front();
             mque.pop();
             mque.push(temp);
@@ -23,12 +27,14 @@ public:
         mque.pop();
         return s;
     }
-    
-    int top() {
+
+    int top()
+    {
         return mque.back();
     }
-    
-    bool empty() {
+
+    bool empty()
+    {
         return mque.empty();
     }
 };
