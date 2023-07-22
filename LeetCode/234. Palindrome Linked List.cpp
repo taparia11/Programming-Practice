@@ -10,20 +10,23 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    bool isPalindrome(ListNode* head) {
+    bool isPalindrome(ListNode *head)
+    {
         vector<int> arr;
-        while(head){
+        while (head)
+        {
             arr.emplace_back(head->val);
             head = head->next;
         }
 
         int n = arr.size();
-        int i=0;
+        int i = 0;
         n--;
-        for(;i<=n;i++,n--)
-            if(arr[i]!=arr[n])
+        for (; i <= n; i++, n--)
+            if (arr[i] != arr[n])
                 return 0;
         return 1;
     }
