@@ -11,10 +11,13 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    int maxDepth(TreeNode* root) {
-        if(root == NULL) return 0;
+    int maxDepth(TreeNode *root)
+    {
+        if (root == NULL)
+            return 0;
         int lh = maxDepth(root->left);
         int rh = maxDepth(root->right);
 
