@@ -6,8 +6,7 @@ public:
     int singleNumber(vector<int> &nums)
     {
 
-// Using map STL
-
+        // Using map STL
 
         // map<int, int> hashmap;
         // for (auto num : nums)
@@ -19,15 +18,13 @@ public:
         //     }
         // return 0;
 
-
-
-// Using set STL
+        // Using set STL
 
         set<int> hashset;
-        for(auto it:nums)
-            if(hashset.count(it)>0)
+        for (auto it : nums)
+            if (hashset.count(it) > 0)
                 hashset.erase(it);
-            else 
+            else
                 hashset.insert(it);
         return *(hashset.begin());
     }
