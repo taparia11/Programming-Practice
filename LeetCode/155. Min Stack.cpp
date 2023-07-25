@@ -1,35 +1,41 @@
 // Problem Link => https://leetcode.com/problems/min-stack/description/
 
-class MinStack {
+class MinStack
+{
 public:
- stack<int> mainSt;
- stack<int> minSt;
-    MinStack() {
-        
+    stack<int> mainSt;
+    stack<int> minSt;
+    MinStack()
+    {
     }
-    
-    void push(int val) {
+
+    void push(int val)
+    {
         mainSt.push(val);
-        if(minSt.empty() || val<=minSt.top())
+        if (minSt.empty() || val <= minSt.top())
             minSt.push(val);
     }
-    
-    void pop() {
-        if(minSt.top()==mainSt.top()){
+
+    void pop()
+    {
+        if (minSt.top() == mainSt.top())
+        {
             minSt.pop();
         }
-            mainSt.pop();
+        mainSt.pop();
     }
-    
-    int top() {
-       if(!mainSt.empty())
+
+    int top()
+    {
+        if (!mainSt.empty())
             return mainSt.top();
         else
             return 0;
     }
-    
-    int getMin() {
-        if(!minSt.empty())
+
+    int getMin()
+    {
+        if (!minSt.empty())
             return minSt.top();
         else
             return 0;
