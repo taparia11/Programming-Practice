@@ -10,25 +10,30 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution
+{
 public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode* fast=head;
-        int count=0;
-        while(fast){
+    ListNode *removeNthFromEnd(ListNode *head, int n)
+    {
+        ListNode *fast = head;
+        int count = 0;
+        while (fast)
+        {
             fast = fast->next;
             count++;
         }
-        
-        if(head==NULL || count==1)
+
+        if (head == NULL || count == 1)
             return nullptr;
-        if(count == n){
+        if (count == n)
+        {
             return head->next;
         }
 
         count -= ++n;
         fast = head;
-        while(count-->0){
+        while (count-- > 0)
+        {
             fast = fast->next;
         }
 
