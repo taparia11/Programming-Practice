@@ -1,10 +1,12 @@
 // Problem Link => https://leetcode.com/problems/roman-to-integer/description/
 
-class Solution {
+class Solution
+{
 public:
-    int romanToInt(string s) {
-        int ans=0;
-        unordered_map<char,int> mp;
+    int romanToInt(string s)
+    {
+        int ans = 0;
+        unordered_map<char, int> mp;
         mp['I'] = 1;
         mp['V'] = 5;
         mp['X'] = 10;
@@ -12,8 +14,9 @@ public:
         mp['C'] = 100;
         mp['D'] = 500;
         mp['M'] = 1000;
-        for(int i=0;i<s.size();i++){
-            if(mp[s[i]]<mp[s[i+1]])
+        for (int i = 0; i < s.size(); i++)
+        {
+            if (mp[s[i]] < mp[s[i + 1]])
                 ans = ans - mp[s[i]];
             else
                 ans = ans + mp[s[i]];
