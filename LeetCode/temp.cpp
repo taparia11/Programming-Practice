@@ -4,7 +4,7 @@
 using namespace std;
 
 // Funtion for mex alternating subarray legth
-int max_alternating_subarray_length(vector<int> nums)
+int swapCount(vector<int> nums)
 {
   int count=0;
   for(int i=1;i<=nums.size();i++){
@@ -30,8 +30,8 @@ int main()
       nums.push_back(a);
     }
 
-    int max_length = max_alternating_subarray_length(nums);
-    cout << max_length << endl;
+    int max_Swap = swapCount(nums);
+    cout << max_Swap << endl;
   }
   return 0;
 }
