@@ -8,7 +8,7 @@ int max_alternating_subarray_length(vector<int> nums)
 {
   int count=0;
   for(int i=1;i<=nums.size();i++){
-    if(nums[i-1]==i)
+    if(nums[i]==i)
       count++;
   }
   
