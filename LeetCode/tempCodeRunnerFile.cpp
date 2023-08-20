@@ -2,21 +2,18 @@
 #include<vector>
 using namespace std;
 
-int main(){
-    int n;
-    cin>>n;
-    int *ans = (int*)malloc(n*sizeof(int));
-    for(int i=0; i<n; i++){
-        cin>>ans[i];
-    }
-    int m = *max_element(ans, ans+n);
-    int sum=0;
-    for (int i = 0; i < n; i++)
-    {
-        sum += ((ans[i]) * (i+1)) + m;
-    }
+string xback(string s){
+    if(s.length()==0)
+        return "";
 
-    cout<<sum;
-    
+    string ns = xback(s.substr(1));
+
+    if(s[0] == 'x')
+        return ns+'x';
+    return s[0] + ns;
+
+} 
+int main(){
+    cout<<xback("abxxfb");
     return 0;
 }
