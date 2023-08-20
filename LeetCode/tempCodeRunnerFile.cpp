@@ -8,12 +8,12 @@ string xback(string s){
 
     string ns = xback(s.substr(1));
 
-    if(s[0] == 'x')
-        return ns+'x';
+    if(s[0] == ns[0])
+        return ns;
     return s[0] + ns;
 
 } 
 int main(){
-    cout<<xback("abxxfb");
+    cout<<xback("aabbbc");
     return 0;
 }
