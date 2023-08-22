@@ -23,3 +23,30 @@ int frogJump(int n, vector<int> &heights)
     vector<int> dp(n + 1, -1);
     return f(n - 1, heights, dp);
 }
+
+#include <bits/stdc++.h> 
+int frogJump(int n, vector<int> &heights)
+{
+    // Write your code here.
+    // 10 22 30 40
+    // 1 10 22 22 30
+    // 2 10 30
+    // 3 10 30 30 40
+    // 4 10 22 22 40
+
+    // int arr[n];
+    // memset(arr, -1, n);
+    int prev = 0;
+    int prev2 = 0;
+    int count = 0;
+    for(int i=1; i<n; i++){
+        int fs = prev + abs(heights[i] - heights[i-1]);
+        int ss = INT_MAX;
+        if(i>1)
+            ss = prev2 + abs(heights[i] - heights[i-2]);
+        count = min(fs, ss);
+        prev2 = prev;
+        prev = count;         
+    }
+    return count;
+}
