@@ -2,30 +2,21 @@
 #include<vector>
 using namespace std;
 
-int findMinCost(int n){
-	int sum = 0;
-	for (int i = 2; i <=n; )
-	{
-		if(n==1)
-			break;
-		if(n%i==0){
-			n = n/i;
-			sum += i;
-		}
-		else{
-			i++;
-		}
+long getScoreDifference(vector<int> points){
+	priority_queue<int> p;
+	for(int i=0; i<points.size(); i++){
+		p.push(points[i]);
 	}
-	return sum;
+	return p.top();
 }
 
 int main(){
-	int t;
-	cin>>t;
-	while(t--){
-		int n;
-		cin>>n;
-		cout<<findMinCost(n);
+	int n;
+	cin>>n;
+	vector<int> points(n);
+	for(int i=0; i<n; i++){
+		cin>>points[i];
 	}
+	cout<<getScoreDifference(points);
 	return 0;
 }
