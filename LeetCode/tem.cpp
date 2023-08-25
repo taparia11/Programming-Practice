@@ -31,12 +31,13 @@ int main(){
 
 	for(int i=0; i<M; i++){
 	int sum = 0;
+	// check every condition | (OR) result and adding them up
 		for (int j = L[i]; j <= R[i] ; j++)
 		{
 			for (int k = P[i]; k <= Q[i]; k++)
 			{
 				sum += A[j-1] | B[k-1];
-			}
+			} 
 			
 		}
 		cout<<sum<<" ";
