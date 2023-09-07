@@ -24,7 +24,7 @@ public:
                 else{
                     curr->right = new TreeNode(val);
                     break;
-                }
+                } 
             }
             else{
                 if(curr->left!=NULL)
