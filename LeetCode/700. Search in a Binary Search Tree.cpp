@@ -14,7 +14,7 @@
 class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int val) {
-        // Solving Iteratively 
+    // Solving Iteratively 
         TreeNode *temp = root ; 
         while(temp != NULL)
         {
@@ -32,5 +32,10 @@ public:
             }
         }
         return NULL ;  
+
+    // Solving originaly  in 2 lines
+        // while(root!=NULL && root->val!=val)
+        //     root = val<root->val?root->left:root->right;
+        // return root;
     }
 };
