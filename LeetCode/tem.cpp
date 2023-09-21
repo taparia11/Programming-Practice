@@ -1,49 +1,43 @@
-// C++ program to merge two sorted arrays/
-#include<bits/stdc++.h>
+// C++ program to find the length of the longest substring
+// without repeating characters
+#include <bits/stdc++.h>
 using namespace std;
 
-void mergeArrays(int arr1[], int arr2[], int n1,
-                            int n2, int arr3[])
+// This function returns true if all characters in str[i..j]
+// are distinct, otherwise returns false
+bool areDistinct(string str, int i, int j)
 {
-    int i = 0, j = 0, k = 0;
-    // traverse the arr1 and insert its element in arr3
-    while(i < n1){
-    arr3[k++] = arr1[i++];
+
+    // Note : Default values in visited are false
+    vector<bool> visited(256);
+
+    for (int k = i; k <= j; k++) {
+        if (visited[str[k]] == true)
+            return false;
+        visited[str[k]] = true;
     }
-        
-    // now traverse arr2 and insert in arr3
-    while(j < n2){
-    arr3[k++] = arr2[j++];
-    }
-        
-    // sort the whole array arr3
-    sort(arr3, arr3+n1+n2);
+    return true;
+}
+
+// Returns length of the longest substring
+// with all distinct characters.
+int longestUniqueSubsttr(string str)
+{
+    int n = str.size();
+    int res = 0; // result
+    for (int i = 0; i < n; i++)
+        for (int j = i; j < n; j++)
+            if (areDistinct(str, i, j))
+                res = max(res, j - i + 1);
+    return res;
 }
 
 // Driver code
 int main()
 {
-    int size1,size2;
-
-    cin>>size1;
-    int arr[size1];
-    for (int i = 0; i < size1; i++)
-    {
-        cin>>arr[i];
-    }
-    cin>>size2;
-    int arr1[size2];
-    for (int i = 0; i < size2; i++)
-    {
-        cin>>arr1[i];
-    }
-
-    int arr2[size1+size2];
-    mergeArrays(arr, arr1, size1, size2, arr2);
-
-    // cout << "Array after merging" <<endl;
-    // for (int i=0; i < size1+size2; i++)
-        cout << arr2[(size1+size2)/2] << " ";
-
+    char str[100];
+    scanf("%s",str);
+    int len = longestUniqueSubsttr(str);
+    cout<<len;
     return 0;
 }
