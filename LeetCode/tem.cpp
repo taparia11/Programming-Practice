@@ -1,79 +1,85 @@
-// A Naive C++ recursive implementation
-// of LIS problem
-#include <bits/stdc++.h>
+// C++ program to prints first k pairs with least sum from two
+// arrays.
+#include<bits/stdc++.h>
+
 using namespace std;
 
-// To make use of recursive calls, this
-// function must return two things:
-// 1) Length of LIS ending with element
-// arr[n-1].
-// We use max_ending_here for this purpose
-// 2) Overall maximum as the LIS may end
-// with an element before arr[n-1] max_ref
-// is used this purpose.
-// The value of LIS of full array of size
-// n is stored in *max_ref which is
-// our final result
-int _lis(int arr[], int n, int* max_ref)
+// Function to find k pairs with least sum such
+// that one element of a pair is from arr1[] and
+// other element is from arr2[]
+void kSmallestPair(int arr1[], int n1, int arr2[],
+								int n2, int k)
 {
+	if (k > n1*n2)
+	{
+		cout << "k pairs don't exist";
+		return ;
+	}
 
-    // Base case
-    if (n == 1)
-        return 1;
+	// Stores current index in arr2[] for
+	// every element of arr1[]. Initially
+	// all values are considered 0.
+	// Here current index is the index before
+	// which all elements are considered as
+	// part of output.
+	int index2[n1];
+	memset(index2, 0, sizeof(index2));
 
-    // 'max_ending_here' is length of
-    // LIS ending with arr[n-1]
-    int res, max_ending_here = 1;
+	while (k > 0)
+	{
+		// Initialize current pair sum as infinite
+		int min_sum = INT_MAX;
+		int min_index = 0;
 
-    // Recursively get all LIS ending with
-    // arr[0], arr[1] ... arr[n-2]. If
-    // arr[i-1] is smaller than arr[n-1],
-    // and max ending with arr[n-1] needs
-    // to be updated, then update it
-    for (int i = 1; i < n; i++) {
-        res = _lis(arr, i, max_ref);
-        if (arr[i - 1] < arr[n - 1]
-            && res + 1 > max_ending_here)
-            max_ending_here = res + 1;
-    }
+		// To pick next pair, traverse for all elements
+		// of arr1[], for every element, find corresponding
+		// current element in arr2[] and pick minimum of
+		// all formed pairs.
+		for (int i1 = 0; i1 < n1; i1++)
+		{
+			// Check if current element of arr1[] plus
+			// element of array2 to be used gives minimum
+			// sum
+			if (index2[i1] < n2 &&
+				arr1[i1] + arr2[index2[i1]] < min_sum)
+			{
+				// Update index that gives minimum
+				min_index = i1;
 
-    // Compare max_ending_here with the
-    // overall max. And update the
-    // overall max if needed
-    if (*max_ref < max_ending_here)
-        *max_ref = max_ending_here;
+				// update minimum sum
+				min_sum = arr1[i1] + arr2[index2[i1]];
+			}
+		}
 
-    // Return length of LIS ending
-    // with arr[n-1]
-    return max_ending_here;
+		cout  << arr1[min_index] << " "
+			<< arr2[index2[min_index]] <<" ";
+
+		index2[min_index]++;
+
+		k--;
+	}
 }
 
-// The wrapper function for _lis()
-int lis(int arr[], int n)
-{
-
-    // The max variable holds the result
-    int max = 1;
-
-    // The function _lis() stores its
-    // result in max
-    _lis(arr, n, &max);
-
-    // Returns max
-    return max;
-}
-
-// Driver program to test above function
+// Driver code
 int main()
 {
-    int n;
-    cin>>n;
-    int arr[n];
-        for(int i=0;i<n;i++)
-        cin>>arr[i];
-    // int n = sizeof(arr) / sizeof(arr[0]);
+    int len1,len2;
+    cin>>len1;
+	int arr1[len1];
+    for (int i = 0; i < len1; i++)
+    {
+        cin>>arr1[i];
+    }
+    cin>>len2;
+	int arr2[len2];
+    for (int i = 0; i < len2; i++)
+    {
+        cin>>arr2[i];
+    }
 
-    // Function call
-    cout << lis(arr, n);
-    return 0;
+	int k;
+    cin>>k;
+	kSmallestPair( arr1, len1, arr2, len2, k);
+
+	return 0;
 }
