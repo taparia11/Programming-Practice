@@ -14,6 +14,9 @@
 class Solution {
 public:
 
+    // Time Complexity O(log N)^2
+    // Space Complexity O(log N)
+
     int leftNodes(TreeNode* root){
        int height = 0;
        while(root){
