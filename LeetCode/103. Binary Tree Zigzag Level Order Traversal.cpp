@@ -23,25 +23,19 @@ public:
         q.push(root);
         bool flag = true;
         while(!q.empty()){
-            vector<int> level;
-
             int qSize = q.size();
+            vector<int> level(qSize);
+
             for(int i=0;i<qSize;i++){
                 root = q.front();
                 q.pop();
+                int index = flag ? i : (qSize - 1 - i);
+                level[index] = root->val;
                 if(root->left != NULL)  q.push(root->left);
                 if(root->right != NULL) q.push(root->right);
-                level.push_back(root->val);
-            }
-
-            if(flag == true)
-                ans.push_back(level);
-            
-            else{
-                reverse(level.begin(), level.end());
-                ans.push_back(level);
             }
             flag = !flag;
+            ans.emplace_back(level);
         }
         return ans;
     }
