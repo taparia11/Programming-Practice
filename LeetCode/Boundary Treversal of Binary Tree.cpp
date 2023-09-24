@@ -69,8 +69,8 @@ void leafNodes(TreeNode<int>* root, vector<int>& ans){
         return;
     }
 
-    if(root->right) leafNodes(root->right, ans);
-    if(root->left)  leafNodes(root->left, ans);
+    if(root->left) leafNodes(root->left, ans);
+    if(root->right)  leafNodes(root->right, ans);
 }
 
 vector<int> traverseBoundary(TreeNode<int> *root)
