@@ -11,34 +11,56 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 class Solution {
 public:
-    vector<vector<int>> verticalTraversal(TreeNode* root) {
-        vector<vector<int>> ans;
+
+    vector<int> ans;
+
+    void rightView(TreeNode* root, int level){
+        if(root==nullptr)
+            level = level;
+        
+        if(level == ans.size())
+            ans.emplace_back(root->val);
+        
+        if(root->right)
+            rightView(root->right,level+1);
+        if(root->left)
+            rightView(root->left,level+1);
+    }
+
+    vector<int> rightSideView(TreeNode* root) {
+
+//  Recursive Solution
         if(root==NULL)
             return ans;
 
-        map<int, map<int, multiset<int>>> mapp;
-        queue<pair<TreeNode*,pair<int, int>>> q;
-        q.push({root,{0,0}});
-        while(!q.empty()){
-            auto it = q.front();
-            q.pop();
-            TreeNode* node = it.first;
-            int x = it.second.first, y = it.second.second;
-            mapp[x][y].insert(node->val);
-            if(node->left!=nullptr)
-                q.push({node->left,{x-1,y+1}});
-            if(node->right!=NULL)
-                q.push({node->right,{x+1, y+1}});
-        }
-
-        for(auto p:mapp){
-            vector<int> vertical;
-            for(auto it:p.second)
-                vertical.insert(vertical.end(),it.second.begin(), it.second.end());
-            ans.emplace_back(vertical);
-        }
+        rightView(root,0);
         return ans;
+
+
+ // Itretive Solution
+        // vector<int> ans;
+        // if(root==nullptr)
+        //     return ans;
+        // // stack<TreeNode*> st;
+        // queue<TreeNode*> q;
+        // q.push(root);
+        // while(!q.empty()){
+        //     int qSize = q.size();
+        //     int value;
+        //     for(int i=0;i<qSize;i++){
+        //         auto it = q.front();
+        //         q.pop();
+        //         if(it->left!=nullptr)
+        //             q.push(it->left);
+        //         if(it->right!=NULL)
+        //             q.push(it->right);
+        //         value = it->val;
+        //     }
+        //     ans.push_back(value);
+        // }
+        // return ans;
     }
 };
