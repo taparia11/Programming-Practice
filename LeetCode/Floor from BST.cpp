@@ -2,6 +2,7 @@
 
 int Floor(BinaryTreeNode<int> *node, int input)
 {
+	// floor => Nearest smallest Interger
 	int floor = -1;
 	while(node){
 		if(node->data == input){
