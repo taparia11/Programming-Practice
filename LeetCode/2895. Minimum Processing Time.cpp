@@ -2,7 +2,7 @@
 
 class Solution {
 public:
-    int minProcessingTime(vector<int>& processorTime, vector<int>& tasks) {
+    int minProcessingTime(vector<int>& processorTime, vector<int>& tasks) { 
         vector<int> cores;
         for(auto it:processorTime)
             for(int i=0; i<4; i++)
