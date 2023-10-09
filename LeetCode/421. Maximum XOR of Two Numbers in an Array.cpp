@@ -3,19 +3,23 @@
 struct Node{
     Node* link[2];
 
+// To check wheather key is available or not.
     bool containsKey(int bit){
         return (link[bit] != NULL);
     }
 
+// to add new tire with value
     void put(int bit, Node* node){
         link[bit] = node;
     }
 
+// Getting node address connected to this value.
     Node* get(int bit){
         return link[bit];
     }
 };
 
+// hadling all XOR operations.
 class XOR{
 public:
 private:
@@ -27,6 +31,7 @@ public:
         root = new Node();
     }
 
+// Inserting value  in trie in bitwise format.
     void insert(int num){
         Node* node = root;
         for(int i=31; i>=0; i--){
@@ -38,6 +43,7 @@ public:
         }
     }
 
+// Getting maximum value related  to current value.
     int getMax(int num){
         Node* node = root;
         int maxNum = 0;
@@ -58,11 +64,14 @@ public:
 class Solution {
 public:
     int findMaximumXOR(vector<int>& nums) {
+    // created the Object
         XOR trie;
+    // Adding values in trie.
         for(auto it:nums){
             trie.insert(it);
         }
-        int maxi = 0;
+        int maxi = 0; // Contains maximum value after XOR operation.
+    // Getting Value comparing with entire nums.
         for(auto it:nums)
             maxi = max(maxi, trie.getMax(it));
         return maxi;
