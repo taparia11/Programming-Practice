@@ -1,24 +1,15 @@
-#include<bits/stdc++.h>
-#include<vector>
+#include <iostream>
 using namespace std;
 
-int main(){
-    int n;
-    cin>>n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin>>arr[i];
-    }
-    int target;
-    cin>>target;
-    int p;
-    for (int i = 0; i < n; i++)
-    {
-        if(target==arr[i])
-            p = i;
-    }
-    cout<<p;
-    
-    return 0;
+int main() {
+	// your code goes here
+	int hours;
+	cin>>hours;
+	if(hours<3)
+	    cout<<"GOLD";
+    else if(hours>=3 && hours<6)
+	    cout<<"SILVER";
+	else
+	    cout<<"BRONZE";
+	return 0;
 }
