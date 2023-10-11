@@ -1,15 +1,16 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-	// your code goes here
-	int hours;
-	cin>>hours;
-	if(hours<3)
-	    cout<<"GOLD";
-    else if(hours>=3 && hours<6)
-	    cout<<"SILVER";
-	else
-	    cout<<"BRONZE";
+	int t;
+	cin>>t;
+	while(t--){
+	    int x,y; 
+	    cin>>x>>y;
+	    x = int(x/y);
+	    cout<<(x>=20?20:x)<<endl;
+	    
+	}
 	return 0;
 }
