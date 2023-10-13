@@ -9,7 +9,7 @@ int main(){
     ans.emplace_back(2);
     ans.emplace_back(9);
 
-    for(auto &it: ans)
+    for(auto it: ans)
         cout<<it<<endl;
     return 0;
 }
