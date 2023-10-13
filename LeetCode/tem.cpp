@@ -1,16 +1,52 @@
-#include <iostream>
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+#include<vector>
+#include<string>
 using namespace std;
 
-int main() {
-	int t;
-	cin>>t;
-	while(t--){
-	    int x,y; 
-	    cin>>x>>y;
-	    x = int(x/y);
-	    cout<<(x>=20?20:x)<<endl;
-	    
-	}
-	return 0;
+// static int count = 1;
+
+class student{
+    private:
+        int A,B;
+        string Full_Name;
+    public:
+
+        student(string name){
+            this->Full_Name = name;
+            this->A = 5;
+            B = 7;
+            cout<<"Object Created "<<this->Full_Name<<endl;
+        }
+
+        void getName(string name){
+            this->Full_Name = name;
+            // cin>>this->Full_Name;
+            // getline(cin, Full_Name);
+        }
+
+        void printName();
+
+        void print(){
+            cout<<this->B<<" "<<A<<endl;
+        }
+
+        ~student(){
+            cout<<"Object removed"<<this->Full_Name<<endl;
+        }
+};
+
+void student::printName(){
+    cout<<endl<<this->Full_Name<<endl;
+}
+
+int main(){
+    student s1("Nikhil");
+    s1.print();
+    // s1.getName();
+    s1.printName();
+    student s2("taparia");
+    s2.print();
+    // s2.getName();
+    s2.printName();
+    return 0;
 }
