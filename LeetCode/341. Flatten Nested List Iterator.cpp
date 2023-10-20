@@ -21,19 +21,21 @@
 class NestedIterator
 {
 public:
+
+// In this Question nestedList holds Objects of NestedInterger class.
     vector<int> flattend;
     int idx = 0;
 
     vector<int> flatten(vector<NestedInteger> &nestedList)
     {
         vector<int> result;
-        for (auto it : nestedList)
+        for (auto it : nestedList) // Iterating over Objects
         {
-            if (it.isInteger())
+            if (it.isInteger()) // calling object funtion to check
                 result.push_back(it.getInteger());
             else
             {
-                auto subList = flatten(it.getList());
+                auto subList = flatten(it.getList()); // this will give object that contains multiple objects
                 result.insert(result.end(), subList.begin(), subList.end());
             }
         }
@@ -42,16 +44,19 @@ public:
 
     NestedIterator(vector<NestedInteger> &nestedList)
     {
+        // Storing List into flattend vector
         flattend = flatten(nestedList);
     }
 
     int next()
     {
+        // returning value at idx in vector then increasing idx
         return flattend[idx++];
     }
 
     bool hasNext()
     {
+        //checking idx is less than flattend list size
         return idx < flattend.size();
     }
 };
