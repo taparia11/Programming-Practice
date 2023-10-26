@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #include<vector>
 using namespace std;
-
+//solving through recurssion
 void findCombinations(int idx, int target, vector<int> &a, vector<vector<int>> &ans, vector<int> &ds){
     cout<<a.size()<<endl;
     if(idx == a.size()){
