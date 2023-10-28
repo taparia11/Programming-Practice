@@ -1,33 +1,29 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+#include<vector>
 using namespace std;
 
-int main() {
-    int n;
-    cin >> n;
-    vector<string> tickets(n);
-    for (int i = 0; i < n; i++) {
-        cin >> tickets[i];
-    }
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == j) {
-                continue;
-            }
-            string s = tickets[i] + tickets[j];
-            int len = s.length();
-            if (len % 2 == 0) {
-                int sum1 = 0, sum2 = 0;
-                for (int k = 0; k < len/2; k++) {
-                    sum1 += s[k] - '0';
-                    sum2 += s[k+len/2] - '0';
-                }
-                if (sum1 == sum2) {
-                    count++;
-                }
-            }
-        }
-    }
-    cout << count << endl;
-    return 0;
+int main(){
+	int t;
+	cin>>t;
+	while (t--)
+	{
+		int x,y,k;
+		cin>>x>>y>>k;
+		if(x>=y)
+			cout<<x<<endl;
+		else if(y>x){
+			int val = y-x;
+			if(k>val){
+				y = x + val;
+			}
+			else{
+			x = x+k;
+			y = y - x;
+			y = x + 2*y;
+			}
+			cout<<y<<endl;
+		}
+	}
+	
+	return 0;
 }
