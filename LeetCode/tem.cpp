@@ -1,18 +1,21 @@
-#include <iostream>
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+#include<vector>
 using namespace std;
 
-int main() {
-	int t;
-	cin>>t;
-	while(t--){
-	    int a;
-	    cin>>a;
-	    int rem = a%7;
-	    a = a/7;
-	    a = rem>1?a+1:a;
-	    cout<<a<<endl;
-	    
+int main(){
+	int x,y;
+	cin>>x>>y;
+	if(x>y){
+		if(x-y<=3)
+			cout<<"Yes";
+		else
+			cout<<"No";
+	}
+	else{
+		if(y-x<=2)
+			cout<<"Yes";
+		else
+			cout<<"No";
 	}
 	return 0;
 }
