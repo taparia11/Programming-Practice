@@ -1,59 +1,33 @@
-#include<bits/stdc++.h>
-#include<vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-vector<int> prim;
-void primeFactors(int n)  
-{  
-    for (int i = 3; i <= n; i = i + 2)  
-    { 
-        while (n % i == 0)  
-        {  
-            n = n/i;  
-
-            prim.push_back(i);  
-        }  
-    }  
-    if (n > 2)  
-            prim.push_back(n);  
-}  
-  
-
-int main(){
-	int t;
-	cin>>t;
-	while (t--)
-	{
-		int n;
-		cin>>n;
-		primeFactors(n);
-		int alice=0, bob=0;
-		for(auto it=prim.rbegin();it!=prim.rend();){
-			if(alice<=bob){
-				if((n- (*it))<0)
-					break;
-				n = n- (*it);
-				alice++;
-			}
-			else{
-				if((n- (*it))<0)
-					break;
-				n = n- (*it);
-				bob++;
-			}
-			if(n==0)
-				break;
-			if((*it)>n)
-				it++;
-		}
-
-		prim.clear();
-		if(alice==bob)
-			cout<<"Bob"<<endl;
-		else
-			cout<<"Alice"<<endl;
-
-	}
-	
-	return 0;
+int main() {
+    int n;
+    cin >> n;
+    vector<string> tickets(n);
+    for (int i = 0; i < n; i++) {
+        cin >> tickets[i];
+    }
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == j) {
+                continue;
+            }
+            string s = tickets[i] + tickets[j];
+            int len = s.length();
+            if (len % 2 == 0) {
+                int sum1 = 0, sum2 = 0;
+                for (int k = 0; k < len/2; k++) {
+                    sum1 += s[k] - '0';
+                    sum2 += s[k+len/2] - '0';
+                }
+                if (sum1 == sum2) {
+                    count++;
+                }
+            }
+        }
+    }
+    cout << count << endl;
+    return 0;
 }
