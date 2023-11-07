@@ -2,47 +2,30 @@
 #include<vector>
 using namespace std;
 
-int main(){
-	int n;
-	cin>>n;
-	int A[n], B[n];
-	for(int i=0; i<n; i++){
-		cin>>A[i];
-	}
-	for(int i=0; i<n; i++){
-		cin>>B[i];
-	}
-	int M;
-	cin>>M;
-	int L[M], R[M], P[M], Q[M];
-	for(int i=0; i<M; i++){
-		cin>>L[i];
-	}
-	for(int i=0; i<M; i++){
-		cin>>R[i];
-	}
-	for(int i=0; i<M; i++){
-		cin>>P[i];
-	}
-	for(int i=0; i<M; i++){
-		cin>>Q[i];
-	}
-	int temp = M;
-
-	for(int i=0; i<M; i++){
+int findMinCost(int n){
 	int sum = 0;
-	// check every condition | (OR) result and adding them up
-		for (int j = L[i]; j <= R[i] ; j++)
-		{
-			for (int k = P[i]; k <= Q[i]; k++)
-			{
-				sum += A[j-1] | B[k-1];
-			} 
-			
+	for (int i = 2; i <=n; )
+	{
+		if(n==1)
+			break;
+		if(n%i==0){
+			n = n/i;
+			sum += i;
 		}
-		cout<<sum<<" ";
-		
+		else{
+			i++;
+		}
 	}
+	return sum;
+}
 
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		cout<<findMinCost(n);
+	}
 	return 0;
 }
