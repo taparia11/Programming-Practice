@@ -2,11 +2,14 @@
 #include<vector>
 using namespace std;
 
-string xback(string s){
+void xback(string s, string ans){
     if(s.length()==0)
-        return "";
+        {
+            cout<<ans<<endl;
+            return;
+        }
 
-    string ns = xback(s.substr(1));
+    string 
 
     if(s[0] == ns[0])
         return ns;
