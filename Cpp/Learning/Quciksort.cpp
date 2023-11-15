@@ -27,9 +27,9 @@ void  quick(int arr[], int l, int r){
 }
 
 int main(){
-    int arr[] = {2, 6, 1, 3, 4, 5};
-    quick(arr, 0, 6);
-    for (int  i = 0; i < 6; i++)
+    int arr[] = {2, 1, 3, 4, 5};
+    quick(arr, 0, 4);
+    for (int  i = 0; i < 5; i++)
     {
         cout<<arr[i]<<" ";
     }
