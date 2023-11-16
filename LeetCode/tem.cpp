@@ -1,6 +1,31 @@
 #include <iostream>
 #include <bits/stdc++.h>
+#include <string>
 using namespace std;
+
+bool checkPrime(int n){
+	for (int i = 2; i<= n/2; i++)
+	{
+		if(n%i==0)
+			return false;
+	}
+
+	string s = to_string(n);
+	int i=0, j = s.length()-1;
+	while(i<=j){
+		if(s[i]!=s[j])
+			return false;
+
+		i++; j--;
+	}
+
+	return true;
+}
+
+bool checkCount(int n){
+	string s =to_string(n);
+	return s.size()%2 == 0? true:false;
+}
 
 int main() {
 	int t;
@@ -8,37 +33,25 @@ int main() {
 	while(t--){
 	    int n;
 	    cin>>n;
-		string chefp, chefinap;
-		cin>>chefp;
-		cin>>chefinap;
-		int chef = 0, chefina = 0, draw=0;
-		for(int i=0; i<n; i++){
-			// S s r p
-			// P s r p
-			// R s r p
-			if(chefp[i] == 'S' && chefinap[i] == 'P')
-				chef++;
-			else if(chefp[i] == 'P' && chefinap[i] == 'R')
-				chef++;
-			else if(chefp[i] == 'R' && chefinap[i] == 'S')
-				chef++;
-			else if(chefp[i] == chefinap[i])
-				draw++;
-		}
-		chefina = n - draw - chef;
-		if(chef>chefina)
-	    	cout<<0<<endl;
-		else if(chef==chefina)
-	    	cout<<1<<endl;
-		else{
-			draw = 0;
-			while(chef <= chefina){
-				draw++;
-				chef++;
-				chefina--;
+		vector<int> prime;
+	    for (int i = 2; prime.size() < n; i++)
+		{
+			if(checkPrime(i)){
+				prime.emplace_back(i);
 			}
-			cout<<draw<<endl;
 		}
+		int even=0, odd=0;
+
+		for (int i = 0; i < n; i++)
+		{
+			if(checkCount(prime[i]))
+				even++;
+			else
+				odd++;
+		}
+		
+		
+	    cout<<even<<" "<<odd<<endl;
 	    
 	}
 	return 0;
